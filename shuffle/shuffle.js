@@ -28,7 +28,6 @@ const myShuffle = (arr) => {
   var temp = 0;
   while (currentIndex != 0){
     var randomIndex = Math.floor(Math.random() * currentIndex)
-    console.log(Math.random() * currentIndex)
     currentIndex--
     temp = arr[currentIndex];
     arr[currentIndex] = arr[randomIndex];
