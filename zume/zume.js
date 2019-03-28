@@ -55,16 +55,21 @@ const splitData = (counts) => {
   for(let j = 0; j < firstSplit.length; j++){
     firstSplit[j][1] = firstSplit[j][1].split('.');
     let domain = [];
-    for(let x = firstSplit[j][1].length; x <= 0;x--){
-      console.log(firstSplit[j][1][x])
-      // domain.push(firstSplit[j][x])
+    for(let x = firstSplit[j][1].length; x >= 0;x--){
+      if(firstSplit[j][1][x] !== undefined){
+        domain.unshift(firstSplit[j][1][x])
+      }
+      if(!obj[domain]){
+        obj[domain.join('.')] = parseInt(firstSplit[j][0]);
+      } else {
+        obj[domain] = obj[domain] + parseInt(firstSplit[j][0])
+      }
     } 
   } 
-  // console.log(firstSplit)
-  // console.log(obj)
+  return obj
 }
 
-splitData(counts)
+console.log(splitData(counts))
 
 
 
