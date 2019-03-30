@@ -57,10 +57,11 @@ const splitData = (counts) => {
     let domain = [];
     for(let x = firstSplit[j][1].length; x >= 0;x--){
       if(firstSplit[j][1][x] !== undefined){
-        domain.unshift(firstSplit[j][1][x])
+        domain.unshift(firstSplit[j][1][x]);
+        domain.join('.')
       }
       if(!obj[domain]){
-        obj[domain.join('.')] = parseInt(firstSplit[j][0]);
+        obj[domain] = parseInt(firstSplit[j][0]);
       } else {
         obj[domain] = obj[domain] + parseInt(firstSplit[j][0])
       }
